@@ -1,0 +1,52 @@
+\batchmode
+\documentclass{article}
+\usepackage{ifthen}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+
+
+\newcounter{x}
+\newcounter{n}
+\newcounter{t}
+\newcounter{r}
+\newcounter{tmp}
+
+
+\newcommand {\test}[1]{
+	\ifthenelse{#1 > 2} {\setcounter{tmp}{#1} \addtocounter{tmp}{-1} \fibobis{\thetmp}} {\thet}
+}
+
+
+\newcommand {\fibobis}[1]{	
+	\ifthenelse{\then < #1} {\add \fibobis{#1}} {\thet}
+}
+
+
+\newcommand{\fibo}[1]{
+	\setcounter{x}{1}
+	\setcounter{t}{1}
+	\setcounter{n}{1}
+	\test{#1} 
+}
+
+
+\newcommand{\add}{
+	\setcounter{r}{\thex}
+	\addtocounter{r}{\thet}
+	\setcounter{x}{\thet}
+	\setcounter{t}{\ther}
+	\stepcounter{n}
+}
+
+
+\begin{document}
+
+\fancyfoot[C]{\fibo {\thepage}}
+
+\fibo{15}
+
+\end{document}
+
+
+
